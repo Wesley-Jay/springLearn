@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: sentinel-service
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+      eager: true
+      # 取消Sentinel控制台懒加载
+      # 默认情况下 Sentinel 会在客户端首次调用的时候进行初始化，开始向控制台发送心跳包
+      # 配置 sentinel.eager=true 时，取消Sentinel控制台懒加载功能
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#        group: order
+#      config:
+#        server-addr: 127.0.0.1:8848
+#        file-extension: yaml
+#        prefix: order-service
+#  profiles:
+#    active: dev

@@ -1,0 +1,42 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+#        group: order
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        prefix: order-service
+
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+      eager: true
+      datasource:
+        ds1:
+          nacos:
+            dataId: sentinel-service
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+  profiles:
+    active: dev
+#配置文件ribbon 指定使用Nacos提供的负载均衡
+#order-service:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+
+#使用自定义的负载均衡策略
+order-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.example.orderservice.config.LoadBalancerRule
+# feign整合sentinel
+feign:
+  sentinel:
+    enabled: true
+

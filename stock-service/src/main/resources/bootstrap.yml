@@ -1,0 +1,21 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: stock-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        prefix: stock-service
+  profiles:
+    active: dev
+#负载均衡配置文件
+#使用自定义的负载均衡策略
+order-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.example.stock_service.config.rule.LoadBalancer
+
