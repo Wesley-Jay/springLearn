@@ -8,10 +8,10 @@ import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients
-@RibbonClients(value = {
-        @RibbonClient(value = "stock-service",configuration = RibbonRuleConfig.class)
-})
+//@EnableFeignClients
+//@RibbonClients(value = {
+//        @RibbonClient(value = "stock-service",configuration = RibbonRuleConfig.class)
+//})
 public class StockServiceApplication {
 
     public static void main(String[] args) {
