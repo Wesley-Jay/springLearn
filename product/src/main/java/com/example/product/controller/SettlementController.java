@@ -2,6 +2,7 @@ package com.example.product.controller;
 
 import com.example.product.service.SettlementExecute;
 import com.example.product.service.impl.AlipayPayment;
+import com.example.product.service.impl.PaymentByCardAdapter;
 import com.example.product.service.impl.WechatPay;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,13 @@ public class SettlementController {
     @RequestMapping("/payFee/alipay")
     public String alipayPayFee() {
         execute.settlePayment(new AlipayPayment(), amount);
+        return "结算ok";
+    }
+
+    @RequestMapping("/payMethod/alipay")
+    public String alipayPay() {
+        PaymentByCardAdapter cardAdapter = new PaymentByCardAdapter(new AlipayPayment());
+        cardAdapter.payment(3000.0);
         return "结算ok";
     }
 }

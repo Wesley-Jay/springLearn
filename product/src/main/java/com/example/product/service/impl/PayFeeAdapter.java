@@ -9,19 +9,19 @@ import com.example.product.service.PayMethod;
  * @date 2022/10/24
  */
 public class PayFeeAdapter implements PayFee {
-    PayMethod payMethod;
+    PayFee payFee;
 
     /**
      * 根据传入的支付方式实例化适配器
-     * @param method 支付方式
+     * @param payFee 支付
      */
-    public PayFeeAdapter(PayMethod method) {
-        payMethod = method;
+    public PayFeeAdapter(PayFee payFee) {
+        this.payFee = payFee;
     }
 
 
     @Override
-    public void payment(String type, Double money) {
-        payMethod.balancePay(money);
+    public void payment(Double money) {
+        payFee.payment(money);
     }
 }

@@ -8,8 +8,7 @@ package com.example.product.service;
 public interface PayFee {
     /**
      * 支付
-     * @param type 支付类型
      * @param money 钱
      */
-    void payment(String type, Double money);
+    void payment(Double money);
 }
