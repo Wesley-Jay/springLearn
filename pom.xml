@@ -15,7 +15,6 @@
         <module>stock-service</module>
         <module>order-service</module>
         <module>sentinel</module>
-      <module>myapp</module>
   </modules>
 
     <name>springcloud</name>
