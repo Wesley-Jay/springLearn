@@ -15,6 +15,7 @@
         <module>stock-service</module>
         <module>order-service</module>
         <module>sentinel</module>
+        <module>elasticsearch</module>
   </modules>
 
     <name>springcloud</name>
