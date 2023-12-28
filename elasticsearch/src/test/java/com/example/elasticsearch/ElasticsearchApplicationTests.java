@@ -8,6 +8,7 @@ class ElasticsearchApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("Spring boot");
     }
 
 }

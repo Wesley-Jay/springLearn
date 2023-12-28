@@ -1,0 +1,8 @@
+server:
+  port: 8044
+spring:
+  es:
+    uris: ${ES_URIS:http://10.177.38.27:9200}
+    username: ${ES_USER:elastic}
+    password: ${ES_PASSWORD:123456789}
+    connection-timeout: 3s
