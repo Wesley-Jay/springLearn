@@ -1,8 +1,7 @@
 package com.example.common.chunk.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
+//import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.common.chunk.domain.FileChunkUpload;
-import com.se.ai.chunk.domain.FileChunkUpload;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -10,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @description 文件分片上传业务层
  * @date 2023/6/15
  */
-public interface FileChunkUploadService extends IService<FileChunkUpload> {
+public interface FileChunkUploadService  {
 
     /**
      * 保存分片文件

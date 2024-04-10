@@ -1,8 +1,7 @@
 package com.example.common.chunk.controller;
 
-import com.se.ai.chunk.domain.FileChunkUpload;
-import com.se.ai.chunk.service.FileChunkUploadService;
-import com.se.common.core.domain.AjaxResult;
+import com.example.common.chunk.domain.FileChunkUpload;
+import com.example.common.chunk.service.FileChunkUploadService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,21 +21,21 @@ public class FileChunkUploadController {
     private FileChunkUploadService uploadService;
 
     @PostMapping("/chunkUpload")
-    public AjaxResult chunkUpload(@RequestParam("file") MultipartFile file, FileChunkUpload chunkUpload){
+    public String chunkUpload(@RequestParam("file") MultipartFile file, FileChunkUpload chunkUpload){
         long time = System.currentTimeMillis();
         uploadService.saveFileChunk(chunkUpload, file);
         log.info(chunkUpload.getFileMd5()+ "_"+chunkUpload.getChunkIndex() + "执行分片上传完成，耗时：{}", System.currentTimeMillis() - time);
-        return AjaxResult.success();
+        return "成功";
     }
 
     @PostMapping("/mergeFile")
-    public AjaxResult mergeFile(String fileMd5){
-        return AjaxResult.success(uploadService.mergeFile(fileMd5));
+    public String mergeFile(String fileMd5){
+        return uploadService.mergeFile(fileMd5);
     }
 
     @GetMapping("/cancelMergeFile")
-    public AjaxResult cancelMergeFile(String fileMd5){
+    public String cancelMergeFile(String fileMd5){
         uploadService.cancelMergeFile(fileMd5);
-        return AjaxResult.success();
+        return "success";
     }
 }

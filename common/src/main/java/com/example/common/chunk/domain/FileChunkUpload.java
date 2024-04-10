@@ -1,8 +1,8 @@
 package com.example.common.chunk.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+//import com.baomidou.mybatisplus.annotation.IdType;
+//import com.baomidou.mybatisplus.annotation.TableId;
+//import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
  * @date 2023/6/15
  */
 @Data
-@TableName("ai_file_chunk_record")
+//@TableName("ai_file_chunk_record")
 @NoArgsConstructor
 public class FileChunkUpload {
-    @TableId(value = "id", type = IdType.AUTO)
+    //@TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /** 文件md5 */
